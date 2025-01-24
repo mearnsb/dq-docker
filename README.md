@@ -24,13 +24,26 @@ docker pull gcr.io/owl-hadoop-cdh/dq-web:2024.11.1-ABDGCSHILM-4213
 
 ```bash
 mkdir -p /path/to/your/postgres/data # Replace with your desired data directory path
-docker run -d -p 5432:5432 -it --memory="4g" -e POSTGRES_PASSWORD=password -v /path/to/your/postgres/folder:/var/lib/postgresql/data postgres
+
+docker run -d \
+-p 5432:5432 \
+-it --memory="4g" \
+-e POSTGRES_PASSWORD=password \
+-v /path/to/your/postgres/folder:/var/lib/postgresql/data \
+postgres
 ```
 
 ### 2. Run DQ Web
 
 ```bash
-docker run -p 9005:9005 -d -it --memory="4g" --env-file=env-demo.txt --add-host=host.docker.internal:host-gateway -v /path/to/your/mount/folder/:/tmp/scratch -e OWL_VERSION=2024.11.1-ABDGCSHILM-4213 gcr.io/owl-hadoop-cdh/dq-web:2024.11.1-ABDGCSHILM-4213
+docker run -p 9005:9005 \
+-d -it \
+--memory="4g" \
+--env-file=env-demo.txt \
+--add-host=host.docker.internal:host-gateway \
+-v /path/to/your/mount/folder/:/tmp/scratch \
+-e OWL_VERSION=2024.11.1-ABDGCSHILM-4213 \
+gcr.io/owl-hadoop-cdh/dq-web:2024.11.1-ABDGCSHILM-4213
 ```
 
 ### Environment Variables
@@ -92,12 +105,12 @@ multiTenantSchemaHub=owlhub
 
 # SSL (Mounted Volume Path /tmp/scratch for jks, optional to comment this section when SERVER_HTTP_ENABLED=TRUE)
 SERVER_HTTP_ENABLED=TRUE
-SERVER_HTTPS_ENABLED=FALSE
-SERVER_SSL_KEY_STORE=/tmp/scratch/keystore.jks
-SERVER_REQUIRE_SSL=TRUE
-SERVER_SSL_KEY_TYPE=PKCS12
-SERVER_SSL_KEY_PASS=<keystore-password>
-SERVER_SSL_KEY_ALIAS=<keystore-alias>
+#SERVER_HTTPS_ENABLED=TRUE
+#SERVER_SSL_KEY_STORE=/tmp/scratch/keystore.jks
+#SERVER_REQUIRE_SSL=TRUE
+#SERVER_SSL_KEY_TYPE=PKCS12
+#SERVER_SSL_KEY_PASS=<keystore-password>
+#SERVER_SSL_KEY_ALIAS=<keystore-alias>
 
 # Connection Pool
 SPRING_DATASOURCE_POOL_MAX_WAIT=10000
