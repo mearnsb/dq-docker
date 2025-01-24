@@ -24,7 +24,9 @@ docker pull gcr.io/owl-hadoop-cdh/dq-web:2024.11.1-ABDGCSHILM-4213
 
 ```bash
 mkdir -p /path/to/your/postgres/data # Replace with your desired data directory path
+```
 
+```bash
 docker run -d \
 -p 5432:5432 \
 -it --memory="4g" \
