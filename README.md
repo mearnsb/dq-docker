@@ -1,4 +1,4 @@
-# Collibra Data Quality Web (DQ Web) + Docker 
+# Collibra Data Quality (DQ Web) + Docker 
 A quick and portable deployment with a small footprint.
 
 A getting started guide to run pushdown DQ jobs for demo and discovery.
