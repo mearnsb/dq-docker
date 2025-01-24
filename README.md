@@ -1,4 +1,9 @@
-# Collibra Data Quality Web (DQ Web) Docker Installation Guide
+# Collibra Data Quality Web (DQ Web) + Docker 
+A quick and portable deployment with a small footprint.
+
+A getting started guide to run pushdown DQ jobs for demo and discovery.
+
+This simple, streamlined example shows how you can install the Collibra DQ application with 1-2 commands.
 
 ## Prerequisites
 
